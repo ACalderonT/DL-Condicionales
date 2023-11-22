@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Sometype+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        font-family: "PT Sans", sans-serif;
+        font-family: "Sometype Mono", monospace;
+      }
+
+      .main-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 60px;
+        width: 100vw;
+        height: 100vh;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+        <h1>Ingresa el Password</h1>
+        <div class="selectors-container">
+            <select name="first" id="first">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <select name="second" id="second">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+
+            <select name="third" id="third">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+        <button onclick="onClick()">
+            Ingresar
+        </button>
+        <span id="message"></span>
+    </div>
+
+    <script>
+        function onClick(){
+            const firstDigit = document.querySelector("#first");
+            const secondDigit = document.querySelector("#second");
+            const thirdDigit = document.querySelector("#third");
+
+            const messageElement = document.querySelector("#message");
+
+            const concatDigits = firstDigit.value + secondDigit.value + thirdDigit.value
+
+            if(concatDigits === "911"){
+                messageElement.style.color = "green";
+                messageElement.innerHTML = "password 1 correcto"
+            } else if (concatDigits === "714") {
+                messageElement.style.color = "green";
+                messageElement.innerHTML = "password 2 correcto"
+            } else {
+                messageElement.style.color = "red";
+                messageElement.innerHTML = "password  incorrecto"
+            }
+            
+        }
+    </script>
+  </body>
+</html>

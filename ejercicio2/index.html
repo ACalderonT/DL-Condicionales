@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Hanken+Grotesk:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        font-family: "Chakra Petch", sans-serif;
+      }
+
+      .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(./img/bg.jpg);
+        background-position: center;
+        background-size: cover;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .images-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 25px;
+        width: 100%;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 10px;
+        gap: 35px;
+        padding: 15px;
+        background-color: #033c3c3c;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+
+      input {
+        height: 30px;
+        text-align: center;
+      }
+
+      .bg-span {
+        color: white;
+        border: .5px solid white;
+        background-color: #033c3c3c;
+        border-radius: 10px;
+        font-size: x-large;
+        padding: 25px;
+      }
+
+      button {
+        background-color: #000000;
+        border: 3px solid white;
+        border-radius: 10px;
+        color: white;
+        height: 70px;
+        width: 350px;
+        font-size: 20px;
+        transition-duration: 0.5s;
+        font-size: x-large;
+      }
+
+      button:hover {
+        background-color: white;
+        color: #000000;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="images-container">
+        <div class="card">
+          <img src="./img/zerg.svg" alt="zerg" />
+          <input type="text" name="zerg" id="zerg"/>
+        </div>
+        <div class="card">
+          <img src="./img/terran.svg" alt="terran" />
+          <input type="text" name="terran" id="terran" />
+        </div>
+        <div class="card">
+          <img src="./img/protoss.svg" alt="zerg" />
+          <input type="text" name="protoss" id="protoss" />
+        </div>
+      </div>
+      <div>
+        <span id="message"></span>
+      </div>
+      <div>
+        <button onclick="onClick()">VERIFICAR</button>
+      </div>
+    </div>
+
+    <script>
+        function onClick(){
+            const cantZerg = document.querySelector("#zerg");
+            const cantTerran = document.querySelector("#terran");
+            const cantProtoss = document.querySelector("#protoss");
+            const messageElement = document.querySelector('#message');
+
+            const cantTotal = Number(cantZerg.value) + Number(cantTerran.value) + Number(cantProtoss.value)
+            
+            const successMessage = `Llevas ${cantTotal} stickers`;
+            const failMessage = `Llevas demasiados stickers`;
+            if (cantTotal > 0 && cantTotal <= 10) {
+                messageElement.classList.add('bg-span');
+                console.log(messageElement)
+                messageElement.innerHTML = successMessage;
+            } else if (cantTotal > 10) {
+                messageElement.classList.add('bg-span');
+                messageElement.innerHTML = failMessage;
+            } else if (cantTotal == 0) {
+                messageElement.classList.remove('bg-span');
+                messageElement.innerHTML = '';
+            }
+
+        }
+    </script>
+  </body>
+</html>

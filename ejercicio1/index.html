@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: #3c3c3c;
+        }
+
+        img {
+            height: 200px;
+            width: 300px;
+        }
+
+        .border-red {
+            border: 2px solid red;
+        }
+    </style>
+  </head>
+  <body>
+    <img class="border-red" id="paisaje" onclick="onClick()" src="./img/image1.jpg" alt="paisaje">
+
+    <script>
+        function onClick() {
+            const imagen = document.querySelector("#paisaje");
+            const className = imagen.className
+
+            if ( className ){
+                imagen.classList.remove('border-red');
+            } else {
+                imagen.classList.add('border-red');
+            }
+
+        }
+    </script>
+  </body>
+</html>
